@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+# bin/console
+# 実行コマンド例: ruby bin/console migrate --up
+
+require_relative '../Commands/registry'
+
+# コマンドの最初の引数をコマンド名とみなす
+command_name = ARGV.shift  # ARGVはRubyのグローバル配列(コマンドライン引数を格納)
+
+# それ以降の引数をまとめて command_args とする
+command_args = ARGV
+
+if command_name.nil?
+  puts "Please provide a command. Available commands: #{Commands::REGISTRY.map(&:command_name).join(', ')}"
+  exit
+end
+
+# REGISTRYには[Programs::Migrate, Programs::CodeGeneration]などが登録されている想定
+found_command_class = Commands::REGISTRY.find { |cmd_class| cmd_class.command_name == command_name }
+
+if found_command_class
+  # インスタンス化して executeメソッドを呼ぶ
+  command_instance = found_command_class.new(command_args)
+  command_instance.execute
+else
+  puts "Command '#{command_name}' not found. Available commands: #{Commands::REGISTRY.map(&:command_name).join(', ')}"
+end
