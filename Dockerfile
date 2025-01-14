@@ -14,12 +14,6 @@ RUN bundle config set --global frozen 1 \
 # ソースコードコピー
 COPY . .
 
-# wait-for-it.sh も含めてコピーされる想定 (上で述べたcurlダウンロードでもOK)
-# COPY wait-for-it.sh /usr/local/bin/wait-for-it.sh
-# RUN chmod +x /usr/local/bin/wait-for-it.sh
-# ↑ 実際には上記のように個別COPYしてもOKですが、
-#   "COPY . ." に含まれていれば十分です（あとはPATHを通す or フルパスで呼ぶ）。
-
 # entrypoint.sh を実行可能にしておく
 RUN chmod +x ./entrypoint.sh
 
