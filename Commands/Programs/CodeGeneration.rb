@@ -16,7 +16,7 @@ module Commands
 
         if @options[:command] && @options[:name]
           generate_command_file(@options[:name])
-        elsif @options[:migration] && @options[:name]
+        elsif @flags[:migration] && @options[:name]
           generate_migration_file(@options[:name])
         else
           log("Please specify either --command or --migration along with --name 'YourName'")
@@ -71,10 +71,22 @@ end
         log("Created new command file: #{target_path}")
       end
 
+      private
+
+      def table_name(migration_name)
+        migration_name               # Ex: "create_users_table"  
+          .gsub(/^create_/, '')      # => "users_table"
+          .gsub(/_table$/, '')       # => "users"
+      end
+    
+      def camelize(str)
+          str.split('_').map(&:capitalize).join
+      end
+
       def generate_migration_file(name)
         timestamp = Time.now.strftime('%Y%m%d%H%M%S')
         file_name = "#{timestamp}_#{name}.rb"
-        migrations_dir = File.expand_path('../../../Database/Migrations', __dir__)
+        migrations_dir = File.expand_path('../../Database/Migrations', __dir__)
         FileUtils.mkdir_p(migrations_dir) unless Dir.exist?(migrations_dir)
 
         target_path = File.join(migrations_dir, file_name)
@@ -96,16 +108,6 @@ class #{camelize(name)}
 
   def down(db)
       db.query("DROP TABLE IF EXISTS #{table_name(name)};")
-  end
-
-  private
-
-  def table_name(migration_name)
-      migration_name.gsub(/^create_/, '')
-  end
-
-  def camelize(str)
-      str.split('_').map(&:capitalize).join
   end
 end
         RUBY
