@@ -4,17 +4,18 @@ class CreatePrivateMessagesTable
       CREATE TABLE IF NOT EXISTS private_messages (
         id BIGINT AUTO_INCREMENT PRIMARY KEY,
         sender_id BIGINT NOT NULL,
-        recipient_id BIGINT NOT NULL,
+        receiver_id BIGINT NOT NULL,
         message_content TEXT NOT NULL,
         message_url VARCHAR(255),
         del_flg BOOLEAN DEFAULT FALSE,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        CONSTRAINT fk_pm_account
+        CONSTRAINT fk_messages_sender
           FOREIGN KEY (sender_id)
           REFERENCES users (id)
           ON DELETE CASCADE,
-        CONSTRAINT fk_pm_recipient
+
+        CONSTRAINT fk_messages_receiver
           FOREIGN KEY (recipient_id)
           REFERENCES users (id)
           ON DELETE CASCADE

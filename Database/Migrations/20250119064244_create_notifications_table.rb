@@ -13,12 +13,7 @@ class CreateNotificationsTable
         viewed_flg BOOLEAN DEFAULT FALSE,
         del_flg BOOLEAN DEFAULT FALSE,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-        FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
-        FOREIGN KEY (reply_id) REFERENCES replies(id) ON DELETE CASCADE,
-        FOREIGN KEY (nice_id) REFERENCES nices(id) ON DELETE CASCADE,
-        FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
       SQL
   end

@@ -5,11 +5,11 @@ class CreateSchedulesTable
         id BIGINT AUTO_INCREMENT PRIMARY KEY
         post_id BIGINT NOT NULL,
         post_date DATETIME NOT NULL,
-        del_flg BOOLEAN DEFAULT FALSE,
+        -- del_flg BOOLEAN DEFAULT FALSE(フォロー関係は「削除＝フォロー解除」なので物理削除で十分な場合が多い)
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         PRIMARY KEY (id, post_id),
-        CONSTRAINT fk_schedule_post
+        CONSTRAINT fk_schedules_post
           FOREIGN KEY (post_id)
           REFERENCES posts (id)
           ON DELETE CASCADE
