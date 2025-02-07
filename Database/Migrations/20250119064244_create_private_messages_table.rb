@@ -16,7 +16,7 @@ class CreatePrivateMessagesTable
           ON DELETE CASCADE,
 
         CONSTRAINT fk_messages_receiver
-          FOREIGN KEY (recipient_id)
+          FOREIGN KEY (receiver_id)
           REFERENCES users (id)
           ON DELETE CASCADE
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
