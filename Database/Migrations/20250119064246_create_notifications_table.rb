@@ -2,7 +2,7 @@ class CreateNotificationsTable
   def up(db)
       db.query(<<-SQL)
       CREATE TABLE IF NOT EXISTS notifications (
-        id BIGINT AUTO_INCREMENT PRIMARY KEY
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
         type VARCHAR(50),
         user_id BIGINT,
         post_id BIGINT,

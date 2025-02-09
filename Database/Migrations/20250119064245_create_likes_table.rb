@@ -2,7 +2,7 @@ class CreateLikesTable
   def up(db)
       db.query(<<-SQL)
       CREATE TABLE IF NOT EXISTS likes (
-        id BIGINT AUTO_INCREMENT PRIMARY KEY
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
         user_id BIGINT NOT NULL,
         like_receiver_id BIGINT NOT NULL,
         post_id BIGINT,

@@ -142,6 +142,7 @@ module Commands
       def run_migrations_fresh(db)
         tables = db.query("SHOW TABLES").map { |r| r.values.first }
         tables.each do |t|
+          next if t == "schema_migrations"
           db.query("DROP TABLE IF EXISTS `#{t}`")
         end
         db.query("DELETE FROM schema_migrations")

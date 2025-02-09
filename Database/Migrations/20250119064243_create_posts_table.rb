@@ -2,7 +2,7 @@ class CreatePostsTable
   def up(db)
       db.query(<<-SQL)
       CREATE TABLE IF NOT EXISTS posts (
-        id BIGINT AUTO_INCREMENT PRIMARY KEY
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
         user_id BIGINT NOT NULL, -- 外部キーなし(退会しても投稿は残す)
         parent_post_id BIGINT NULL,  -- リプライ先(親投稿)のID (外部キーなし:親が削除されても子は残る)
         content TEXT NOT NULL,
