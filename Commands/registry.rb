@@ -6,6 +6,7 @@ module Commands
   # 実行可能なコマンドを登録しておく配列
   REGISTRY = [
     Programs::Migrate,
-    Programs::CodeGeneration
+    Programs::CodeGeneration,
+    Programs::Seed
   ]
 end
