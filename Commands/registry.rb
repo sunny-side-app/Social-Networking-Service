@@ -1,5 +1,6 @@
 require_relative 'Programs/Migrate'
 require_relative 'Programs/CodeGeneration'
+require_relative 'Programs/Seed'
 
 module Commands
   # ::はモジュール(またはクラス)の中に定義されたクラスやモジュールを示すパス

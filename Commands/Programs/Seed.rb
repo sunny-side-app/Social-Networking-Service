@@ -1,27 +1,12 @@
-# ※ このファイルは bin/console コマンドから seed サブコマンドとして実行されることを想定しています。
-
-# 依存ファイルの読み込み（各パスはプロジェクトルートからの相対パスに合わせてください）
+require_relative '../AbstractCommand'
 require_relative '../../Database/seeds'
 require_relative '../../Database/seeder_runner'
 require_relative '../../Database/DataAccess/dao_factory'
-# 必要に応じて AbstractCommand も読み込みます（ここでは簡易実装例として定義しています）
 
-# ── AbstractCommand の簡易実装例 ──
-module Commands
-  class AbstractCommand
-    # コマンド実行時の共通処理などを定義できます（ここでは最低限の実装）
-    def execute
-      raise NotImplementedError, "execute メソッドを実装してください"
-    end
-  end
-end
-
-# ── Seed コマンドの実装 ──
 module Commands
   module Programs
     class Seed < Commands::AbstractCommand
-      # コマンド名のエイリアス（この例では "seed"）
-      ALIAS = 'seed'
+      set_command_name 'seed'
 
       # コマンドライン引数を返す（今回は引数不要）
       def self.get_arguments
