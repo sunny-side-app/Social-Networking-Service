@@ -140,13 +140,22 @@ module Commands
 
       # ▼▼▼ fresh: 全テーブルDROP→全マイグレーションUP ▼▼▼
       def run_migrations_fresh(db)
+        # 外部キー制約を無効化
+        db.query("SET FOREIGN_KEY_CHECKS = 0")
+        
         tables = db.query("SHOW TABLES").map { |r| r.values.first }
         tables.each do |t|
           next if t == "schema_migrations"
           db.query("DROP TABLE IF EXISTS `#{t}`")
         end
+        
+        # 外部キー制約を再び有効化
+        db.query("SET FOREIGN_KEY_CHECKS = 1")
+        
+        # schema_migrations のレコードを削除
         db.query("DELETE FROM schema_migrations")
-
+        
+        # マイグレーションアップを実行して全テーブルを再作成
         run_migrations_up(db)
       end
 
