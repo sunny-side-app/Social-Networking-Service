@@ -1,6 +1,6 @@
-require_relative '../AbstractCommand'
+require_relative '../abstract_command'
 require 'mysql2'
-require_relative '../../Database/lib/db_connection'
+require_relative '../../database/lib/db_connection'
 
 module Commands
   module Programs

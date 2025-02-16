@@ -1,5 +1,5 @@
-require_relative 'Implementations/default_dao'
-require_relative 'Implementations/memcached_dao'
+require_relative 'implementations/default_dao'
+require_relative 'implementations/memcached_dao'
 
 module Database
   module DataAccess

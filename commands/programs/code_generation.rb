@@ -1,4 +1,4 @@
-require_relative '../AbstractCommand'
+require_relative '../abstract_command'
 require 'fileutils'
 
 module Commands

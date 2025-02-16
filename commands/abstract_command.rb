@@ -1,5 +1,5 @@
-require_relative 'Command'
-require_relative 'Argument'
+require_relative 'command'
+require_relative 'argument'
 
 module Commands
   class AbstractCommand

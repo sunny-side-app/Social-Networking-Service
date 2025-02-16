@@ -2,7 +2,7 @@
 # bin/console
 # 実行コマンド例: ruby bin/console migrate --up
 
-require_relative '../Commands/registry'
+require_relative '../commands/registry'
 
 # コマンドの最初の引数をコマンド名とみなす
 command_name = ARGV.shift  # ARGVはRubyのグローバル配列(コマンドライン引数を格納)

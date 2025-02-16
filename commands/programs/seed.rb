@@ -1,7 +1,7 @@
-require_relative '../AbstractCommand'
-require_relative '../../Database/seeds'
-require_relative '../../Database/seeder_runner'
-require_relative '../../Database/DataAccess/dao_factory'
+require_relative '../abstract_command'
+require_relative '../../database/seeds'
+require_relative '../../database/seeder_runner'
+require_relative '../../database/data_access/dao_factory'
 
 module Commands
   module Programs
