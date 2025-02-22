@@ -7,7 +7,7 @@ RUN bundle config --global frozen 1
 WORKDIR /usr/src/app
 
 # Gemfile, Gemfile.lock のコピーとインストール
-COPY Gemfile Gemfile.lock ./
+COPY backend/Gemfile backend/Gemfile.lock ./
 RUN bundle config set --global frozen 1 \
  && bundle install
 
