@@ -7,7 +7,7 @@ services:
       - "8000:8000"
     volumes:
       - type: bind
-        source: . # Gemfile があるディレクトリをマウント
+        source: ./backend # Gemfile があるディレクトリをマウント
         target: /usr/src/app/backend
     environment:
       # DB接続先情報を環境変数でセット(db サービスと役割が違うが、内容は対応している必要がある)

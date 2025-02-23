@@ -13,7 +13,7 @@ echo "Waiting for DB to be ready at ${DB_HOST}:${DB_PORT} ..."
 # --- マイグレーション実行 ---
 echo "Running migrations via migrate.rb ..."
 # bundle exec で Rubyスクリプト実行
-bundle exec ruby backend/commands/programs/migrate.rb
+bundle exec ruby ./commands/programs/migrate.rb
 
 # --- Rack サーバ起動 ---
 echo "Starting Rack server on 0.0.0.0:8000..."
