@@ -1,0 +1,10 @@
+require "rake/testtask"
+
+Rake::TestTask.new do |t|
+  t.verbose = true
+  # WORKDIR が /usr/src/app/backend であっても、テストファイルはコンテナ内の /usr/src/app/tests に存在するため
+  t.libs << File.expand_path("../tests", __FILE__) # テスト実行時に tests/ ディレクトリをライブラリパスに追加         
+  t.pattern = File.expand_path("../tests/**/*_test.rb", __FILE__)  # サブディレクトリも含めたすべてのテストファイルを対象にする
+end
+
+task default: :test  # デフォルトタスクを :test に設定して、`rake` コマンドでテストが実行されるようにする
