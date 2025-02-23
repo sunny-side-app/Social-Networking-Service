@@ -1,5 +1,5 @@
-require_relative '../app/controllers/home_controller'
-require_relative '../app/controllers/api/posts_controller'
+require_relative "../app/controllers/home_controller"
+require_relative "../app/controllers/api/posts_controller"
 
 MyRouter = Proc.new do |env|
   req = Rack::Request.new(env)
