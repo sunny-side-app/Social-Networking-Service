@@ -15,10 +15,10 @@ RUN bundle config set --global frozen 1 \
 COPY . .
 
 # entrypoint.sh を実行可能にしておく
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x ./backend/entrypoint.sh
 
 # ポート公開 (Rack serverを -p 8000 で起動する例)
 EXPOSE 8000
 
 # エントリポイント設定: DB待機→マイグレーション→Rackサーバ起動
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./backend/entrypoint.sh"]
