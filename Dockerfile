@@ -3,8 +3,8 @@ FROM ruby:3.3
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 
-# 作業ディレクトリの設定
-WORKDIR /usr/src/app
+# 作業ディレクトリの設定(バックエンド専用のコンテナでは backend ディレクトリのみを対象にする)
+WORKDIR /usr/src/app/backend
 
 # Gemfile, Gemfile.lock のコピーとインストール
 COPY backend/Gemfile backend/Gemfile.lock ./
