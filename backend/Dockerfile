@@ -11,7 +11,7 @@ COPY backend/Gemfile backend/Gemfile.lock ./
 RUN bundle config set --global frozen 1 \
  && bundle install
 
-# ソースコードコピー
+# backend 配下をまるごとコピー
 COPY backend/ ./
 
 # entrypoint.sh を実行可能にしておく

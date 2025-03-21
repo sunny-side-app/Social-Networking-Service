@@ -6,6 +6,8 @@ MyRouter = Proc.new do |env|
   path = req.path_info
   method = req.request_method
 
+  puts "DEBUG: method=#{method.inspect}, path_info=#{path.inspect}"
+
   case [method, path]
   when ['GET', '/']
     HomeController.new.index(req)
