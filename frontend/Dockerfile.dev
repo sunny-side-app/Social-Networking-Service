@@ -1,0 +1,17 @@
+# frontend/Dockerfile.dev
+FROM node:18-alpine
+
+WORKDIR /usr/src/app/frontend
+
+# 依存関係インストール
+COPY package*.json ./
+RUN npm install
+
+# ソースコードをコピー
+COPY . .
+
+# Viteの開発サーバーはデフォルト5173
+EXPOSE 5173
+
+# ホットリロード（vite devサーバ）で起動
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

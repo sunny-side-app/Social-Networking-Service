@@ -11,11 +11,11 @@ services:
         target: /usr/src/app
     environment:
       # DB接続先情報を環境変数でセット(db サービスと役割が違うが、内容は対応している必要がある)
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_USER=app
-      - DB_PASSWORD=app
-      - DB_NAME=sample
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
     # app コンテナ起動前に DB コンテナを起動
     depends_on:
       - db
@@ -25,10 +25,10 @@ services:
       - "3306:3306"
     # MySQL (DBコンテナ) の初期設定
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=app
-      - MYSQL_PASSWORD=app
-      - MYSQL_DATABASE=sample
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
       - TZ=Asia/Tokyo
     volumes:
       - type: volume
@@ -37,5 +37,33 @@ services:
       - type: bind
         source: ./docker/db/init
         target: /docker-entrypoint-initdb.d
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile.dev
+    container_name: frontend-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - type: bind
+        source: ./frontend
+        target: /usr/src/app/frontend
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+    depends_on:
+      - app
+
+  frontend-prod:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile.prod
+    container_name: frontend-prod
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+    depends_on:
+      - app
+
 volumes:
   db-compose-volume:
