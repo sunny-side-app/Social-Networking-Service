@@ -39,8 +39,8 @@ services:
         target: /docker-entrypoint-initdb.d
   frontend-dev:
     build:
-      context: .
-      dockerfile: frontend/Dockerfile.dev
+      context: ./frontend
+      dockerfile: Dockerfile.dev
     container_name: frontend-dev
     ports:
       - "5173:5173"
@@ -55,8 +55,8 @@ services:
 
   frontend-prod:
     build:
-      context: .
-      dockerfile: frontend/Dockerfile.prod
+      context: ./frontend
+      dockerfile: Dockerfile.prod
     container_name: frontend-prod
     ports:
       - "3000:3000"
