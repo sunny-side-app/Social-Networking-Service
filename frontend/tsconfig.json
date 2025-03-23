@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true, // ESModuleでないライブラリでも、デフォルトインポートを許可する
+    "esModuleInterop": true, // CommonJS系のモジュールを「デフォルトインポート」の形で扱えるようにする
+  },
+  "include": ["src"]
+}
