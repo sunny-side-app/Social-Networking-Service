@@ -1,30 +1,41 @@
-# --- 1) ビルドステージ ---
-  FROM node:18-alpine as build
+# ----------------------------
+# 1) ビルドステージ
+# ----------------------------
+  FROM node:18-alpine AS build
 
   WORKDIR /usr/src/app/frontend
   
+  # 1-1. package*.json & package-lock.json
   COPY package*.json ./
-  RUN npm install
+  COPY package-lock.json ./
   
+  # 1-2. npm ci (devDependencies含む)
+  # ※ production buildでもVite等のdevDependenciesが必要
+  RUN npm ci --production=false
+  
+  # 1-3. ソースコードコピー
   COPY . .
   
-  # 本番ビルド
+  # 1-4. 本番ビルド (distを生成)
   RUN npm run build
   
-  # --- 2) 本番ステージ (配信ステージ) ---
-  FROM node:18-alpine as serve
+  
+  # ----------------------------
+  # 2) 本番ステージ (配信ステージ)
+  # ----------------------------
+  FROM node:18-alpine AS serve
   
   WORKDIR /usr/src/app/frontend
   
-  # 静的ファイル配信用に serve をインストール (or npm i -g serve)
+  # 2-1. 静的ファイル配信用に serve をグローバルインストール
   RUN npm install -g serve
   
-  # ビルド成果物(dist/)をコピー
+  # 2-2. ビルド成果物(dist/)をコピー
   COPY --from=build /usr/src/app/frontend/dist dist
   
-  # ポート3000で配信
+  # 2-3. ポート3000で配信
   EXPOSE 3000
   
-  # "serve" コマンドで dist をホスティング
+  # 2-4. "serve" コマンドで dist をホスティング
   CMD ["serve", "-s", "dist"]
   
