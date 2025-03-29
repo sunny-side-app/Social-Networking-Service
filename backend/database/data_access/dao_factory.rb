@@ -1,3 +1,6 @@
+require_relative 'implementations/default_dao'
+require_relative 'implementations/memcached_dao'
+
 module Database
   module DataAccess
     class DAOFactory
