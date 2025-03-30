@@ -1,0 +1,19 @@
+.header_container {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  padding: 16px;
+}
+
+.header_inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}

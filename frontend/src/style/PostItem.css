@@ -1,0 +1,39 @@
+/* 全体の箱 */
+.postItem_container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 上部: ユーザーIDといいねを左右に配置 */
+.postItem_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postItem_user {
+  font-weight: bold;
+}
+
+.postItem_likeCount {
+  color: #e55353;
+  font-weight: bold;
+}
+
+/* 本文 */
+.postItem_content {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+/* 下部: 投稿日時 */
+.postItem_footer {
+  text-align: right;
+  font-size: 0.875rem;
+  color: #666;
+}

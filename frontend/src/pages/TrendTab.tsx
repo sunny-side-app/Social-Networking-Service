@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import { Post } from '../types/Post'
-import { fetchTrendPosts } from '../services/postService'
-import PostItem from '../components/PostItem'
+// frontend/src/pages/TrendTab.tsx
+import React, { useEffect, useState } from "react";
+import { fetchTrendPosts } from "../services/postService";
+import PostList from "../components/PostList";
 
 function TrendTab() {
-  const [posts, setPosts] = useState<Post[]>([])
+  const [posts, setPosts] = useState<any[]>([]);
 
   useEffect(() => {
     fetchTrendPosts()
-      .then(data => setPosts(data))
-      .catch(err => console.error(err))
-  }, [])
+      .then((data) => setPosts(data))
+      .catch(console.error);
+  }, []);
 
   return (
-    <div>
-      <h2>トレンド (いいね数が多い投稿)</h2>
-      {posts.map(post => (
-        <PostItem key={post.id} post={post} />
-      ))}
+    <div className="trendTab_container">
+      <h3 className="trendTab_title">トレンド</h3>
+      {/* (2) Pagination omitted for now */}
+      <PostList postList={posts} />
     </div>
-  )
+  );
 }
 
-export default TrendTab
+export default TrendTab;
