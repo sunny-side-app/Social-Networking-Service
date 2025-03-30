@@ -1,5 +1,5 @@
 class Post
-  attr_accessor :id, :user_id, :parent_post_id, :content, :scheduled_at,
+  attr_accessor :id, :user_id, :parent_post_id, :content, :media_url, :scheduled_at,
                 :url, :status, :reply_nice_number, :del_flg, :created_at, :updated_at
 
   def initialize(id: nil, user_id:, parent_post_id: nil, content:, media_url: nil, scheduled_at: nil,
