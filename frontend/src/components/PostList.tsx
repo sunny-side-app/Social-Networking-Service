@@ -1,11 +1,6 @@
 import React from "react";
 import PostItem from "./PostItem";
-
-interface Post {
-  id: number;
-  user_id: number;
-  content: string;
-}
+import { Post } from "../types/Post";
 
 interface PostListProps {
   postList: Post[];
