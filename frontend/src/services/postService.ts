@@ -20,3 +20,8 @@ export async function fetchFollowerPosts(
   })
   return response.data
 }
+
+export async function createPost({ content } : { content: string }): Promise<Post> {
+  const response = await apiClient.post<Post>('/api/posts', { content })
+  return response.data
+}

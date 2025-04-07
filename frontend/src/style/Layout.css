@@ -1,6 +1,18 @@
 .layout_container {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #fff; /* 例 */
+  min-height: 100vh;
+}
+
+.layout_body {
+  display: flex;
+  flex: 1;
+}
+
+.layout_mainContent {
+  flex: 1;
+  /* 中央部分の幅を制限 */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
 }

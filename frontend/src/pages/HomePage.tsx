@@ -1,4 +1,3 @@
-// frontend/src/pages/HomePage.tsx
 import React, { useState } from "react";
 // Layout, Header, Footer は E-Commerceから移植 or sharedディレクトリを流用
 import Layout from "../components/Layout";
@@ -43,8 +42,6 @@ function HomePage() {
           {activeTab === "followers" && <FollowerTab userId={1} />}
         </div>
       </div>
-
-      <Footer />
     </Layout>
   );
 }
