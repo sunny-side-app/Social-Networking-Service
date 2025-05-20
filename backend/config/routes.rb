@@ -14,10 +14,12 @@ MyRouter = Proc.new do |env|
   # 1) ルーティング結果を一旦変数に格納
   route_result = case method
                  when 'GET'
-                   if path == '/'
-                     # 例: "/" を HomeController で処理
-                     HomeController.new.index(req)
-
+                  #  if path == '/'
+                  #    # 例: "/" を HomeController で処理
+                  #    HomeController.new.index(req)
+                  # "/" は静的サイト (frontend-prod) が返す想定。Ruby API は 404 を返す
+                   if false
+                    # (到達しない)
                    elsif path =~ %r{^/api/posts/(\d+)$}
                      # e.g. /api/posts/123
                      post_id = $1.to_i
