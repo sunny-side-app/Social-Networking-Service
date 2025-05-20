@@ -1,0 +1,23 @@
+.sideNav_container {
+  width: 220px;
+  background-color: #f3f4f6;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.sideNav_container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sideNav_link {
+  display: block;
+  margin: 8px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+.sideNav_link:hover {
+  font-weight: bold;
+}

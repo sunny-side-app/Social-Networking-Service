@@ -1,0 +1,27 @@
+.homepage_container {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+}
+
+.homepage_title_container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.homepage_tabs_container {
+  margin-bottom: 16px;
+}
+
+.homepage_tabContent_container {
+  /* flex-grow: 1; など必要に応じて */
+}
+
+.trendTab_container {
+  margin-top: 8px;
+}
+
+/* etc. 追加でフォロワータブなどのクラスも自由に */

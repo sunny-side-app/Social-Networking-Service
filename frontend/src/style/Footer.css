@@ -1,0 +1,16 @@
+.footer_container {
+  margin-top: auto; /* push footer to bottom if using flex in layout */
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+.footer_inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer_text {
+  font-size: 0.875rem;
+  color: #666;
+}

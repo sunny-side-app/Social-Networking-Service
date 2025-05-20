@@ -1,3 +1,4 @@
+require_relative '../dao_factory'
 require_relative '../dao_interface'
 require_relative '../../lib/db_connection'
 

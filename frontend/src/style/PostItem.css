@@ -1,0 +1,48 @@
+/* 全体の箱 */
+.postItem_container {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  background-color: #fff;
+}
+
+/* 上部: ユーザーIDといいねを左右に配置 */
+.postItem_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postItem_user {
+  font-weight: bold;
+}
+
+/* 本文 */
+.postItem_content {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.postItem_actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.postItem_reply, .postItem_like {
+  cursor: pointer;
+}
+
+/* 修正行: アイコンのスタイルを追加 */
+.postItem_icon {
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* 下部: 投稿日時 */
+.postItem_footer {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+}

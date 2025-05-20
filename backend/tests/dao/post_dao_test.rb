@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'json'
-require_relative '../backend/database/data_access/dao_factory'
+require_relative '../../database/data_access/dao_factory'
 
 class PostDAOTest < Minitest::Test
   def setup

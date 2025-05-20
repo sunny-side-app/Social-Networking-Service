@@ -27,12 +27,12 @@ class PostsController
 
     posts = rows.map do |row|
       post = Post.new(
-        id: row[:id],
-        user_id: row[:user_id],
-        content: row[:content],
-        media_url: row[:media_url],
-        scheduled_at: row[:scheduled_at],
-        created_at: row[:created_at]
+        id: row["id"],
+        user_id: row["user_id"],
+        content: row["content"],
+        media_url: row["media_url"],
+        scheduled_at: row["scheduled_at"],
+        created_at: row["created_at"]
       )
       hash = post.to_hash
       hash[:like_count] = row["like_count"] || row[:like_count] if row["like_count"] || row[:like_count]

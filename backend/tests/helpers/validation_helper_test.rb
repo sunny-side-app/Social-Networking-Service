@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative '../backend/app/helpers/validation_helper'
+require_relative '../../app/helpers/validation_helper'
 
 class ValidationHelperTest < Minitest::Test
   def test_present
